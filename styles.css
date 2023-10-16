@@ -1,9 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap");
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
+/* global styles */
+
 :root {
   --primary-blue: #6070ff;
   --background-color: #e5e5e5;
   --text-cyan: #344563;
+  --font-poppins: "Poppins", sans-serif;
+  --font-roboto: "Roboto Mono", sans-serif;
 }
 
 * {
@@ -14,7 +22,7 @@
 
 html,
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-poppins);
   font-weight: 400;
   background: var(--background-color);
   height: 100% !important;
@@ -28,6 +36,14 @@ a {
 
 ul {
   list-style: none;
+}
+
+.font-poppins {
+  font-family: var(--font-poppins);
+}
+
+.font-roboto {
+  font-family: var(--font-roboto);
 }
 
 .container {
@@ -49,6 +65,24 @@ ul {
   align-items: center;
   justify-content: center;
 }
+
+.animation-from-right {
+  animation: fromRightAnimation 1.5s ease-in-out;
+}
+
+.animation-from-left {
+  animation: fromLeftAnimation 1.5s ease-in-out;
+}
+
+.animation-from-top {
+  animation: fromTopAnimation 1.5s ease-in-out;
+}
+
+.animation-from-bottom {
+  animation: fromBottomAnimation 1.5s ease-in-out;
+}
+
+/* header and navbar */
 
 .header {
   padding: 0.75rem 0;
@@ -76,6 +110,8 @@ header .logo {
   font-size: 0.9375rem;
 }
 
+/* sub header section */
+
 .sub-header {
   background: url("./img/header-shapes\ mobile.svg"), #fff;
   background-repeat: no-repeat;
@@ -84,6 +120,52 @@ header .logo {
   height: 100%;
   margin-top: 4rem;
   padding-top: 6rem;
+}
+
+.scroll-indicator {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.chevron {
+  position: absolute;
+  width: 1.75rem;
+  height: 0.5rem;
+  opacity: 0;
+  transform: scale3d(0.5, 0.5, 0.5);
+  animation: move 3s ease-out infinite;
+}
+
+.chevron:first-child {
+  animation: move 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+  animation: move 3s ease-out 2s infinite;
+}
+
+.chevron:before,
+.chevron:after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 51%;
+  background: var(--text-cyan);
+}
+
+.chevron:before {
+  left: 0;
+  transform: skew(0deg, 30deg);
+}
+
+.chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skew(0deg, -30deg);
 }
 
 .sub-header-title {
@@ -96,13 +178,65 @@ header .logo {
 
 .sub-header-title-img {
   width: 7rem;
-  /*height: 1rem;*/
 }
 
 .sub-header-title-img img {
   max-width: 100%;
   max-height: 100%;
   border-radius: 100%;
+}
+
+.sub-header-title-h1 {
+  font-weight: 500;
+  font-size: 1.25rem;
+  letter-spacing: -0.015em;
+  margin-bottom: 1rem;
+}
+
+.sub-header-text {
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sub-header-paragraph {
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: -0.015em;
+  line-height: 3rem;
+}
+
+.sub-header-icons {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sub-header-connect-icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sub-header-connect-icon {
+  font-size: 1.5rem;
+  color: var(--primary-blue);
+}
+
+.sub-header-connect-icon a {
+  color: var(--primary-blue);
+  transition: color 2s ease-in-out;
+}
+
+.sub-header-connect-icon a:hover {
+  opacity: 0.7;
 }
 
 /*Media queries*/
@@ -184,5 +318,65 @@ header .logo {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
+  }
+}
+
+/* Animations */
+
+@keyframes fromLeftAnimation {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fromRightAnimation {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fromTopAnimation {
+  0% {
+    transform: translateY(-200%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fromBottomAnimation {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes move {
+  25% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+  67% {
+    opacity: 1;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
   }
 }
