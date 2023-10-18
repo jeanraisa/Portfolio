@@ -19,7 +19,7 @@ const projects = [
   {
     title: "AirBnB clone",
     description:
-      "hbn school Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type ",
+      "Create a command-line tool for an Airbnb clone project to manage, retrieve, update, and destroy objects in the system.",
     technologies: ["HTML", "CSS", "Python"],
     image: "./img/hbnb_logo.png",
     githublink: "https://github.com/jeanraisa/alu-AirBnB_clone",
@@ -27,7 +27,7 @@ const projects = [
   {
     title: "Sortable list",
     description:
-      "list of 10 richest people in the world Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley  ",
+      "Build a sortable list of the world's richest people with drag-and-drop functionality, order validation, and color feedback.",
     technologies: ["HTML", "CSS", "Javascript"],
     image: "./img/sortable.png",
     githublink: "https://github.com/jeanraisa/sortable_list_project",
